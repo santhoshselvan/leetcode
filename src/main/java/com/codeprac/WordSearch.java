@@ -1,6 +1,5 @@
 package com.codeprac;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +30,6 @@ public class WordSearch {
         return index == word.length() - 1;
     }
 
-    @NotNull
     private List<Index> filterChar(List<Index> neighbours, char[][] board, char character) {
         return neighbours.stream()
                 .filter(fi -> board[fi.i][fi.j] == character)
