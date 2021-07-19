@@ -1,6 +1,5 @@
 package com.codeprac;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -49,7 +48,6 @@ public class Itinerary {
         return buildItinerary(starting);
     }
 
-    @NotNull
     private TravelItem addToItineraryAtTheBeginning(TravelItem starting, Ticket beforePoint) {
         var travelItem = new TravelItem(beforePoint.from);
         travelItem.nextPlace = starting;
