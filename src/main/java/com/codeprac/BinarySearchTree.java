@@ -21,4 +21,28 @@ public class BinarySearchTree {
 
         return root;
     }
+
+    public TreeNode fromArray(Integer[] array) {
+        var root = new TreeNode(array[0]);
+        buildBstFromArray(array, root, 1);
+        return root;
+    }
+
+    private void buildBstFromArray(Integer[] array, TreeNode root, int index) {
+        if (root == null || (index + 1) >= array.length) return;
+
+        var leftValue = array[index];
+        var rightValue = array[index + 1];
+
+        if (leftValue != null) {
+            root.left = TreeNode.of(leftValue);
+            buildBstFromArray(array, root.left, index + 2);
+        }
+
+        if (rightValue != null) {
+            root.right = TreeNode.of(rightValue);
+            var rightIndex = leftValue == null ? index + 2 : index + 4;
+            buildBstFromArray(array, root.right, rightIndex);
+        }
+    }
 }
